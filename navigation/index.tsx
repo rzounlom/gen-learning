@@ -1,29 +1,43 @@
+import * as React from 'react';
+
+import { ColorSchemeName, Pressable } from 'react-native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
+import {
+  RootStackParamList,
+  RootTabParamList,
+  RootTabScreenProps,
+} from '../types';
+
+import Colors from '../constants/Colors';
 /**
  * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
  * https://reactnavigation.org/docs/getting-started
  *
  */
 import { FontAwesome } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
-
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
+import LinkingConfiguration from './LinkingConfiguration';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
-import LinkingConfiguration from './LinkingConfiguration';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import useColorScheme from '../hooks/useColorScheme';
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export default function Navigation({
+  colorScheme,
+}: {
+  colorScheme: ColorSchemeName;
+}) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+    >
       <RootNavigator />
     </NavigationContainer>
   );
@@ -38,10 +52,18 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen
+        name='Root'
+        component={BottomTabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='NotFound'
+        component={NotFoundScreen}
+        options={{ title: 'Oops!' }}
+      />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name='Modal' component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -58,24 +80,28 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName='TabOne'
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+      }}
+    >
       <BottomTab.Screen
-        name="TabOne"
+        name='TabOne'
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Games',
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='gamepad' color={color} />
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
+              })}
+            >
               <FontAwesome
-                name="info-circle"
+                name='info-circle'
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -85,11 +111,19 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name='TabTwo'
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'About',
+          tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name='TabThree'
+        component={TabTwoScreen}
+        options={{
+          title: 'Donate',
+          tabBarIcon: ({ color }) => <TabBarIcon name='paypal' color={color} />,
         }}
       />
     </BottomTab.Navigator>
