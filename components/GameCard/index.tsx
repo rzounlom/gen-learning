@@ -5,10 +5,11 @@ import { Game } from '../../data/games';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-const GameCard = ({ id, title, img }: Game) => {
+const GameCard = ({ id, title, img, navLink }: Game) => {
   const navigation = useNavigation();
+
   return (
-    <GameCardContainer onPress={() => navigation.navigate('MathScreen')}>
+    <GameCardContainer onPress={() => navigation.navigate(navLink)}>
       <ImageBackground
         source={img ? img : ''}
         resizeMode='cover'
