@@ -29,4 +29,11 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     marginTop: 5,
   },
+  imageBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
+  },
 });

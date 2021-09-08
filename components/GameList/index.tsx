@@ -7,10 +7,8 @@ import React from 'react';
 const GameList = () => {
   const renderGames = () =>
     games.map((game: any) => {
-      const { id, img, title, navLink } = game;
-      return (
-        <GameCard key={id} id={id} title={title} img={img} navLink={navLink} />
-      );
+      const { id, img, title }: Game = game;
+      return <GameCard key={id} id={id} title={title} img={img} />;
     });
   return <GameListContainer>{renderGames()}</GameListContainer>;
 };
