@@ -1,10 +1,15 @@
 import { Game, games } from '../../data/games';
+import React, { FC } from 'react';
 
 import GameCard from '../GameCard';
 import { GameListContainer } from './styles';
-import React from 'react';
+import { GameScreens } from '../../types';
 
-const GameList = () => {
+interface Props {
+  screen?: GameScreens;
+}
+
+const GameList: FC<Props> = ({ screen }) => {
   const renderGames = () =>
     games.map((game: any) => {
       const { id, img, title, navLink }: Game = game;

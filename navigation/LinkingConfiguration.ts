@@ -35,6 +35,9 @@ const linking: LinkingOptions<RootStackParamList> = {
       Modal: 'modal',
       NotFound: '*',
       MathScreen: 'mathscreen',
+      ReadingScreen: 'readingscreen',
+      ScienceScreen: 'sciencescreen',
+      MoneyScreen: 'moneyscreen',
     },
   },
 };

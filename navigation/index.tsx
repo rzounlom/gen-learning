@@ -20,10 +20,14 @@ import Colors from '../constants/Colors';
  */
 import { FontAwesome } from '@expo/vector-icons';
 import GameScreen from '../screens/GameScreen';
+import { GameScreens } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import MathScreen from '../screens/MathScreen';
 import ModalScreen from '../screens/ModalScreen';
+import MoneyScreen from '../screens/MoneyScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
+import ReadingScreen from '../screens/ReadingScreen';
+import ScienceScreen from '../screens/ScienceScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -63,7 +67,17 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
       />
-      <Stack.Screen name='MathScreen' component={MathScreen} />
+      <Stack.Screen name={GameScreens.GameScreen} component={GameScreen} />
+      <Stack.Screen name={GameScreens.MathScreen} component={MathScreen} />
+      <Stack.Screen
+        name={GameScreens.ReadingScreen}
+        component={ReadingScreen}
+      />
+      <Stack.Screen
+        name={GameScreens.ScienceScreen}
+        component={ScienceScreen}
+      />
+      <Stack.Screen name={GameScreens.MoneyScreen} component={MoneyScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name='Modal' component={ModalScreen} />
       </Stack.Group>

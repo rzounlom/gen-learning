@@ -22,6 +22,10 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   MathScreen: undefined;
+  ReadingScreen: undefined;
+  ScienceScreen: undefined;
+  MoneyScreen: undefined;
+  GameScreen: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -38,3 +42,11 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export enum GameScreens {
+  GameScreen = 'GameScreen',
+  MathScreen = 'MathScreen',
+  ReadingScreen = 'ReadingScreen',
+  ScienceScreen = 'ScienceScreen',
+  MoneyScreen = 'MoneyScreen',
+}
