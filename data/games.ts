@@ -7,7 +7,7 @@ export type Game = {
   navLink: any;
 };
 
-export const games = [
+export const gamesScreens = [
   {
     id: 1,
     title: 'Math',
