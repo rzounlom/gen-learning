@@ -42,14 +42,14 @@ export const games = [
   },
   {
     id: 5,
-    title: 'Coming Soon',
+    title: '',
     img: '',
     navLink: 'MathScreen',
   },
 
   {
     id: 6,
-    title: 'Coming Soon',
+    title: '',
     img: '',
     navLink: 'MathScreen',
   },
