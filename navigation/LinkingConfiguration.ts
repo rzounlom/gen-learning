@@ -38,6 +38,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       ReadingScreen: 'readingscreen',
       ScienceScreen: 'sciencescreen',
       MoneyScreen: 'moneyscreen',
+      SingleGameScreen: 'singlegamescreen',
     },
   },
 };

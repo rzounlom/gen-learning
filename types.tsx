@@ -26,6 +26,7 @@ export type RootStackParamList = {
   ScienceScreen: undefined;
   MoneyScreen: undefined;
   GameScreen: undefined;
+  SingleGameScreen: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -49,4 +50,5 @@ export enum GameScreens {
   ReadingScreen = 'ReadingScreen',
   ScienceScreen = 'ScienceScreen',
   MoneyScreen = 'MoneyScreen',
+  SingleGameScreen = 'SingleGameScreen',
 }

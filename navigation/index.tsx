@@ -28,6 +28,7 @@ import MoneyScreen from '../screens/MoneyScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ReadingScreen from '../screens/ReadingScreen';
 import ScienceScreen from '../screens/ScienceScreen';
+import SingleGameScreen from '../screens/SingleGameScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -87,6 +88,11 @@ function RootNavigator() {
         name={GameScreens.MoneyScreen}
         component={MoneyScreen}
         options={{ title: 'Money Games' }}
+      />
+      <Stack.Screen
+        name={GameScreens.SingleGameScreen}
+        component={SingleGameScreen}
+        options={{ title: '' }}
       />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name='Modal' component={ModalScreen} />
