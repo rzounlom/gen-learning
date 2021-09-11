@@ -1,4 +1,11 @@
-import { Game, gamesScreens, mathGames, readingGames } from '../../data/games';
+import {
+  Game,
+  gamesScreens,
+  mathGames,
+  moneyGames,
+  readingGames,
+  scienceGames,
+} from '../../data/games';
 import { GameCardContainer, styles } from './styles';
 import { ImageBackground, Text } from 'react-native';
 import React, { useEffect } from 'react';
@@ -14,8 +21,12 @@ const GameCard = ({ id, title, img, navLink }: Game) => {
         return mathGames;
       case GameScreens.ReadingScreen:
         return readingGames;
+      case GameScreens.ScienceScreen:
+        return scienceGames;
+      case GameScreens.MoneyScreen:
+        return moneyGames;
       default:
-        return mathGames;
+        return gamesScreens;
     }
   };
 

@@ -1,12 +1,12 @@
-import { Text, View } from 'react-native';
-
+import GameList from '../components/GameList';
 import React from 'react';
+import { ScrollView } from 'react-native';
 
 const MoneyScreen = () => {
   return (
-    <View>
-      <Text>Money Screen</Text>
-    </View>
+    <ScrollView>
+      <GameList />
+    </ScrollView>
   );
 };
 

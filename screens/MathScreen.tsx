@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import GameList from '../components/GameList';
-import { GameScreens } from '../types';
 import { ScrollView } from 'react-native';
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 const MathScreen: FC<Props> = ({ navigation }) => {
   return (
     <ScrollView>
-      <GameList screen={GameScreens.MathScreen} />
+      <GameList />
     </ScrollView>
   );
 };

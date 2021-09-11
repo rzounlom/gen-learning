@@ -1,16 +1,11 @@
-import { Game, gamesScreens, mathGames, readingGames } from '../../data/games';
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import { Game, gamesScreens } from '../../data/games';
+import React, { FC, useEffect, useState } from 'react';
 
 import GameCard from '../GameCard';
 import { GameListContainer } from './styles';
-import { GameScreens } from '../../types';
 import { useNavigationState } from '@react-navigation/native';
 
-interface Props {
-  screen?: GameScreens;
-}
-
-const GameList: FC<Props> = ({ screen }) => {
+const GameList: FC = () => {
   const routeParams = useNavigationState(
     (state: any) => state.routes[1].params
   );
