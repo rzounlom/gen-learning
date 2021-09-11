@@ -1,12 +1,18 @@
-import { Text, View } from 'react-native';
+import React, { FC } from 'react';
 
-import React from 'react';
+import GameList from '../components/GameList';
+import { GameScreens } from '../types';
+import { ScrollView } from 'react-native';
 
-const MathScreen = () => {
+interface Props {
+  navigation: any;
+}
+
+const MathScreen: FC<Props> = ({ navigation }) => {
   return (
-    <View>
-      <Text>Math Screen</Text>
-    </View>
+    <ScrollView>
+      <GameList screen={GameScreens.MathScreen} />
+    </ScrollView>
   );
 };
 

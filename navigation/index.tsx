@@ -68,16 +68,26 @@ function RootNavigator() {
         options={{ title: 'Oops!' }}
       />
       <Stack.Screen name={GameScreens.GameScreen} component={GameScreen} />
-      <Stack.Screen name={GameScreens.MathScreen} component={MathScreen} />
+      <Stack.Screen
+        name={GameScreens.MathScreen}
+        component={MathScreen}
+        options={{ title: 'Math Games' }}
+      />
       <Stack.Screen
         name={GameScreens.ReadingScreen}
         component={ReadingScreen}
+        options={{ title: 'Reading Games' }}
       />
       <Stack.Screen
         name={GameScreens.ScienceScreen}
         component={ScienceScreen}
+        options={{ title: 'Science Games' }}
       />
-      <Stack.Screen name={GameScreens.MoneyScreen} component={MoneyScreen} />
+      <Stack.Screen
+        name={GameScreens.MoneyScreen}
+        component={MoneyScreen}
+        options={{ title: 'Money Games' }}
+      />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name='Modal' component={ModalScreen} />
       </Stack.Group>

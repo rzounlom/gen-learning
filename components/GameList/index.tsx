@@ -1,47 +1,36 @@
-import { Game, gamesScreens } from '../../data/games';
-import React, { FC, useEffect, useState } from 'react';
+import { Game, gamesScreens, mathGames, readingGames } from '../../data/games';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 
 import GameCard from '../GameCard';
 import { GameListContainer } from './styles';
 import { GameScreens } from '../../types';
+import { useNavigationState } from '@react-navigation/native';
 
 interface Props {
   screen?: GameScreens;
 }
 
 const GameList: FC<Props> = ({ screen }) => {
+  const routeParams = useNavigationState(
+    (state: any) => state.routes[1].params
+  );
+
   const [screenList, setScreenList] = useState(gamesScreens);
 
   useEffect(() => {
-    const renderScreen = () => {
-      switch (screen) {
-        case GameScreens.MathScreen:
-          setScreenList(gamesScreens);
-          break;
-        case GameScreens.ReadingScreen:
-          setScreenList(gamesScreens);
-          break;
-        case GameScreens.ScienceScreen:
-          setScreenList(gamesScreens);
-          break;
-        case GameScreens.MoneyScreen:
-          setScreenList(gamesScreens);
-          break;
-        default:
-          setScreenList(gamesScreens);
-      }
-    };
+    if (routeParams) {
+      setScreenList(routeParams.list);
+    }
+  }, [routeParams]);
 
-    renderScreen();
-  }, []);
-
-  const renderGames = () =>
-    screenList?.map((game: any) => {
+  const renderGames = () => {
+    return screenList?.map((game: any) => {
       const { id, img, title, navLink }: Game = game;
       return (
         <GameCard key={id} id={id} title={title} img={img} navLink={navLink} />
       );
     });
+  };
   return <GameListContainer>{renderGames()}</GameListContainer>;
 };
 
