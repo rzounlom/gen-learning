@@ -52,3 +52,7 @@ export enum GameScreens {
   MoneyScreen = 'MoneyScreen',
   SingleGameScreen = 'SingleGameScreen',
 }
+
+export enum SingleGames {
+  counting = 'counting',
+}

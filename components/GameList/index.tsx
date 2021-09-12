@@ -19,10 +19,18 @@ const GameList: FC = () => {
   }, [routeParams]);
 
   const renderGames = () => {
-    return screenList?.map((game: any) => {
-      const { id, img, title, navLink }: Game = game;
+    return screenList?.map((game: Game) => {
+      const { id, img, title, navLink, component }: Game = game;
+      console.log('component in renderGames: ', component);
       return (
-        <GameCard key={id} id={id} title={title} img={img} navLink={navLink} />
+        <GameCard
+          key={id}
+          id={id}
+          title={title}
+          img={img}
+          navLink={navLink}
+          component={component}
+        />
       );
     });
   };
