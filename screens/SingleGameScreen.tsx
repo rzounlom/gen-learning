@@ -1,17 +1,21 @@
-import React, { FC } from 'react';
-import { ScrollView, Text } from 'native-base';
+import React, { FC, useEffect } from 'react';
 
-import { useNavigationState } from '@react-navigation/native';
+import { ScrollView } from 'native-base';
+import { renderSingleGame } from '../utils/renderSingleGame';
+import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const SingleGameScreen: FC = () => {
-  const navState = useNavigationState((state) => state.routes[1]);
+  const navigation = useNavigation();
 
-  // console.log('navState: ', navState);
-  return (
-    <ScrollView>
-      <Text>Single Game Screen</Text>
-    </ScrollView>
-  );
+  const selectedGame = useSelector((state: any) => state.games?.selectedCard);
+
+  useEffect(() => {
+    if (!selectedGame.component) {
+      navigation.goBack();
+    }
+  }, [selectedGame]);
+  return <ScrollView>{renderSingleGame(selectedGame.component)}</ScrollView>;
 };
 
 export default SingleGameScreen;

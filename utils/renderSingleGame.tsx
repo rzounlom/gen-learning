@@ -1,4 +1,7 @@
+import { ScrollView, Text } from 'react-native';
+
 import Counting from '../components/MathGames/Counting';
+import React from 'react';
 import { SingleGames } from '../types';
 
 export const renderSingleGame = (game: SingleGames) => {
@@ -6,6 +9,8 @@ export const renderSingleGame = (game: SingleGames) => {
     case SingleGames.counting:
       return <Counting />;
     default:
-      break;
+      <ScrollView>
+        <Text>Single Game Screen</Text>
+      </ScrollView>;
   }
 };

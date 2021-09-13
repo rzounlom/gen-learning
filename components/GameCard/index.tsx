@@ -14,9 +14,6 @@ import { GameScreens } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 
 const GameCard = ({ id, title, img, navLink, component }: Game) => {
-  console.log('component in GameCard: ', component);
-
-  //   console.log('card data', { id, title, navLink, component });
   const navigation = useNavigation();
   const renderList = () => {
     switch (navLink) {
@@ -34,7 +31,6 @@ const GameCard = ({ id, title, img, navLink, component }: Game) => {
   };
 
   const navigateToScreen = () => {
-    console.log('card data', { id, title, navLink, component });
     navigation.navigate(navLink, {
       list: renderList(),
       component,
@@ -47,7 +43,7 @@ const GameCard = ({ id, title, img, navLink, component }: Game) => {
   }, [renderList, img]);
 
   return (
-    <GameCardContainer onPress={navigateToScreen}>
+    <GameCardContainer>
       <ImageBackground
         source={img}
         resizeMode='cover'

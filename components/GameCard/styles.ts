@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
-export const GameCardContainer = styled.TouchableOpacity`
+export const GameCardContainer = styled.View`
   min-height: 200px;
-  width: 48%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
