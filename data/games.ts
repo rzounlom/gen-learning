@@ -84,7 +84,7 @@ export const mathGames = [
       uri: comingSoonImg,
     },
     navLink: GameScreens.SingleGameScreen,
-    component: SingleGames.counting,
+    component: null,
   },
   {
     id: 33,
@@ -93,7 +93,7 @@ export const mathGames = [
       uri: comingSoonImg,
     },
     navLink: GameScreens.SingleGameScreen,
-    component: SingleGames.counting,
+    component: null,
   },
   {
     id: 44,
@@ -102,7 +102,7 @@ export const mathGames = [
       uri: comingSoonImg,
     },
     navLink: GameScreens.SingleGameScreen,
-    component: SingleGames.counting,
+    component: null,
   },
 ];
 

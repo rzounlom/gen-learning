@@ -7,6 +7,9 @@ import { styles } from './countingStyles';
 const Counting = () => {
   const [received, setReceived] = React.useState([]);
   const [staged, setStaged] = React.useState([]);
+
+  console.log('received: ', received);
+  console.log('staged: ', staged);
   return (
     <DraxProvider>
       <View style={styles.container}>
