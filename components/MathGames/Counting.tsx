@@ -1,8 +1,9 @@
 import { DraxProvider, DraxView } from 'react-native-drax';
-import { ScrollView, Text, View } from 'native-base';
+import { Text, View } from 'native-base';
+import { jungleImg, styles, zooImg } from './countingStyles';
 
+import { ImageBackground } from 'react-native';
 import React from 'react';
-import { styles } from './countingStyles';
 
 const Counting = () => {
   const [received, setReceived] = React.useState([]);
@@ -20,11 +21,23 @@ const Counting = () => {
             const receivingDrag = viewState && viewState.receivingDrag;
             const payload = receivingDrag && receivingDrag.payload;
             return (
-              <>
-                <Text>Receiving Zone</Text>
-                <Text style={styles.incomingPayload}>{payload || '-'}</Text>
-                <Text style={styles.received}>{received.join(' ')}</Text>
-              </>
+              <View
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <ImageBackground
+                  source={jungleImg}
+                  resizeMode='cover'
+                  style={styles.imageBackground}
+                >
+                  <Text style={styles.incomingPayload}>{payload || '-'}</Text>
+                  <Text style={styles.received}>{received.join(' ')}</Text>
+                </ImageBackground>
+              </View>
             );
           }}
           onReceiveDragDrop={(event) => {
@@ -92,9 +105,14 @@ const Counting = () => {
             }
             return (
               <View style={combinedStyles}>
-                <Text>Staging Zone</Text>
-                <Text style={styles.incomingPayload}>{payload || '-'}</Text>
-                <Text style={styles.received}>{staged.join(' ')}</Text>
+                <ImageBackground
+                  source={zooImg}
+                  style={styles.imageBackground}
+                  resizeMode='cover'
+                >
+                  <Text style={styles.incomingPayload}>{payload || '-'}</Text>
+                  <Text style={styles.received}>{staged.join(' ')}</Text>
+                </ImageBackground>
               </View>
             );
           }}
